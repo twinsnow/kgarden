@@ -1,0 +1,165 @@
+
+<div id="modal-setting-content" class="modal__content__box">
+    <div class="modal__content modal__content__adjust">
+            <div class="modal__setting__wrapper">
+                <div class="modal__close__wrapper">
+                    <button type="button" id="modal-close" class="modal__close" aria-label="닫기"><img src="../icons/cancel_ic.svg" alt="창 닫기" class="modal__close_ic"></button>
+                </div>
+            
+                <div class="modal__title__wrapper"><p class="modal__title">설정</p></div>
+                <div class="modal__setting__box">
+                    <div class="modal__setting__cont">
+                        <div class="modal__setting__menu">
+                            <ul class="modal__setting__menus">
+                                <li class="modal__setting__menuitems">
+                                    <button type="button" id="setting-display-menu" class="setting__menu__btn">디스플레이 설정</button>
+                                    <img src="../icons/modal_toggle_ic.svg" alt="메뉴 열기" class="setting__menu__ic">
+                                </li>
+                                <li class="modal__setting__menuitems">
+                                    <button type="button" id="setting-fontsize-menu" class="setting__menu__btn">글자크기 설정</button>
+                                    <img src="../icons/modal_toggle_ic.svg" alt="메뉴 열기" class="setting__menu__ic">
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- <form action="" id="modal-display-setting" class="modal__display__setting">
+                            <div class="modal__setting__displaymode">
+                                <div class="setting__title__wrapper">
+                                    <p class="setting__title">디스플레이 설정</p>
+                                    <p class="setting__subtitle">밝은 모드와 어두운 모드로 설정할 수 있습니다.</p>
+                                </div>
+                                <div class="modal__displaymode__cont">
+                                    <div class="displaymode__option">
+                                        <p class="option__title">밝은 모드</p>
+                                        <div class="option__btn__box option__bgcolor_y">
+                                            <div class="option__btn__wrapper">
+                                                <img src="" alt="" class="option__display__ic">
+                                                <div class="option__btn__cont1">
+                                                    <p class="option__btn__title">주식시장</p>
+                                                    <p class="option__btn__subtitle">
+                                                        Rebot thinking
+                                                        <img src="" alt="" class="subtitle_ic">
+                                                    </p>
+                                                </div>
+                                                <div class="option__btn__cont2">
+                                                    <div class="btn__option__cont_text">주식시장</div>
+                                                </div>
+                                                <div class="option__btn__cont3">
+                                                    <p class="option__btn_text">현재 코스피 지수가 궁금해요</p>
+                                                    <div class="option__btn_i">
+                                                        <img src="" alt="" class="up_ic">
+                                                        <span class="option__btn_red">100.00</span>
+                                                        <span class="option__btn_dark">100.00%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label for="light" class="setting_rd">
+                                            <input type="radio" id="light" name="display-mode" value="light" class="setting_rd__type" checked>
+                                            <span class="setting_rd__custom"></span>
+                                        </label>
+                                    </div>
+                                    <div class="displaymode__option">
+                                        <p class="option__title">어두운 모드</p>
+                                        <div class="option__btn__box option__bgcolor_d">
+                                            <div class="option__btn__wrapper">
+                                                <img src="" alt="" class="option__display__ic">
+                                                <div class="option__btn__cont1">
+                                                    <p class="option__btn__title_d">주식시장</p>
+                                                    <p class="option__btn__subtitle_d">Rebot thinking
+                                                        <img src="" alt="" class="subtitle_d_ic">
+                                                    </p>
+                                                </div>
+                                                <div class="option__btn__cont2">
+                                                    <div class="btn__option__cont_text_d">주식시장</div>
+                                                </div>
+                                                <div class="option__btn__cont3">
+                                                    <p class="option__btn_text_d">현재 코스피 지수가 궁금해요</p>
+                                                    <div class="option__btn_i">
+                                                        <img src="" alt="" class="up_ic">
+                                                        <span class="option__btn_red">100.00</span>
+                                                        <span class="option_btn_dark_d">100.00%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label for="dark" class="setting_rd">
+                                            <input type="radio" id="dark" name="display-mode" value="dark" class="setting_rd__type">
+                                            <span class="setting_rd__custom"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal__btn__group modal__btn__group__adjust">
+                                <button type="submit" id="display-setting-option" class="setting__btn__confirm">확인</button>
+                            </div>
+                        </form> -->
+
+                        <form action="" id="modal-fontsize-setting" class="modal__display__setting">
+                            <div class="modal__fontsize__setting">
+                                <div class="setting__title__wrapper">
+                                    <p class="setting__title">글자크기 설정</p>
+                                    <p class="setting__subtitle">글자 크기를 설정할 수 있습니다.</p>
+                                </div>
+                                <div class="modal__fontsize__cont">
+                                    <div class="fontsize__option">
+                                        <p class="option__title">작은 글씨</p>
+                                        <div class="option__btn__box">
+                                            <div class="option__btn__wrapper">
+                                                <div class="option__btn__cont1">
+                                                    <p class="option__btn__title">작은 글씨</p>
+                                                    <p class="option__btn__subtitle">작은 글씨</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label for="font-sm" class="setting_rd">
+                                            <input type="radio" id="font-sm" name="fontsize-adjust" value="font-sm" class="setting_rd__type" checked>
+                                            <span class="setting_rd__custom"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="fontsize__option">
+                                        <p class="option__title">중간 글씨</p>
+                                        <div class="option__btn__box">
+                                            <div class="option__btn__wrapper">
+                                                <div class="option__btn__cont1">
+                                                    <p class="option__btn__title">중간 글씨</p>
+                                                    <p class="option__btn__subtitle">중간 글씨</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label for="font-md" class="setting_rd">
+                                            <input type="radio" id="font-md" name="fontsize-adjust" value="font-md" class="setting_rd__type">
+                                            <span class="setting_rd__custom"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="fontsize__option">
+                                        <p class="option__title">큰 글씨</p>
+                                        <div class="option__btn__box">
+                                            <div class="option__btn__wrapper">
+                                                <div class="option__btn__cont1">
+                                                    <p class="option__btn__title">큰 글씨</p>
+                                                    <p class="option__btn__subtitle">큰 글씨</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label for="font-lg" class="setting_rd">
+                                            <input type="radio" id="font-lg" name="fontsize-adjust" value="font-lg" class="setting_rd__type">
+                                            <span class="setting_rd__custom"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal__btn__group">
+                                <button type="submit" id="fontsize-setting-option" class="setting__btn__confirm">확인</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+            
+    </div>
+</div>
