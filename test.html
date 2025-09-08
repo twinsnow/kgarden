@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css"/>
+    <title>Document</title>
+</head>
+<body>
+  <div class="segwrap">
+    <div class="seg" role="tablist" aria-label="필터">
+      <div class="content__topbtn_group track">
+                                    <button type="button" class="topbtn__item">
+                                        <img src="icons/g__ic_0.svg" alt="주식시장" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">주식시장</span>
+                                    </button>
+                                    <button type="button" class="topbtn__item">
+                                        <img src="icons/g__ic_2.svg" alt="업종 및 종목 등락" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">업종 | 종목 등락</span>
+                                    </button>
+                                    <a href="/" target="_self" class="topbtn__item">
+                                        <img src="icons/g__ic_8.svg" alt="종목현재가" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">종목현재가</span>
+                                    </a>
+                                    <a href="/" target="_self" class="topbtn__item">
+                                        <img src="icons/g__ic_9.svg" alt="글로벌증시" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">글로벌증시</span>
+                                    </a>
+                                    <a href="/" target="_self" class="topbtn__item">
+                                        <img src="icons/g__ic_5.svg" alt="유가 및 상품" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">유가 및 상품</span>
+                                    </a>
+                                    <a href="/" target="_self" class="topbtn__item">
+                                        <img src="icons/g__ic_7.svg" alt="금리 및 환율" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">금리 및 환율</span>
+                                    </a>
+                                    <a href="/" target="_self" class="topbtn__item">
+                                        <img src="icons/g__ic_10.svg" alt="KB 데일리" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">KB 데일리</span>
+                                    </a>
+                                    <a href="/" target="_self" class="topbtn__item">
+                                        <img src="icons/g__ic_6.svg" alt="최신 리포트" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">최신 리포트</span>
+                                    </a>
+                                    <a href="/" target="_self" class="topbtn__item">
+                                        <img src="icons/g__ic_3.svg" alt="캘린더" class="topbtn__ic"/>
+                                        <span class="topbtn__txt">캘린더</span>
+                                    </a>
+                                </div>
+    </div>
+  </div>
+
+    
+
+    <!-- <script src="js/main.js" defer/></script> -->
+</body>
+</html>
+
+<style>
+
+/* 래퍼 + 가장자리 페이드 */
+.segwrap{ position:relative; }
+.segwrap::before,.segwrap::after{
+  content:""; position:absolute; top:0; bottom:0; width:24px; z-index:2; pointer-events:none;
+}
+.segwrap::before{ left:0; background:linear-gradient(90deg, rgba(17,17,17,1), rgba(17,17,17,0)); }
+.segwrap::after { right:0; background:linear-gradient(-90deg, rgba(17,17,17,1), rgba(17,17,17,0)); }
+
+/* 스크롤 컨테이너 */
+.seg{
+  background:var(--seg-bg);
+  border-radius:999px; padding:4px;
+  overflow-x:auto; overflow-y:hidden; scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;  /* iOS 관성 */
+  mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%); /* 페이드와 동일 폭 */
+}
+.seg::-webkit-scrollbar{ display:none; }
+
+/* 실제 트랙: 최소 70rem 유지 */
+.track{
+  display:flex; gap:4px; min-width:60rem;  /* 핵심 */
+}
+
+/* 버튼 */
+.seg__btn{
+  border:0; background:transparent; color:var(--seg-fg);
+  height:var(--seg-h); line-height:var(--seg-h);
+  padding:0 16px; border-radius:999px; cursor:pointer;
+  white-space:nowrap; font:500 14px/1 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  flex:0 0 auto;  /* 줄바꿈 방지, 한 줄 고정 */
+}
+.seg__btn.is-active{ background:var(--seg-accent); color:#111; font-weight:600; }
+.seg__btn:focus-visible{ outline:2px solid #fff3; outline-offset:2px; }
+</style>
+
+<script>
+(() => {
+  const seg = document.querySelector('.seg');
+  const btns = Array.from(seg.querySelectorAll('.seg__btn'));
+
+  /* // 선택/접근성 토글 + 가운데로 스크롤
+  function activate(i, scroll=true){
+    btns.forEach((b, idx)=>{
+      const on = idx===i;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-selected', on);
+      b.tabIndex = on ? 0 : -1;
+    });
+    if(scroll){
+      btns[i].scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'});
+    }
+  }
+
+  btns.forEach((b, i)=> b.addEventListener('click', ()=> activate(i)));
+
+  // 키보드 내비게이션
+  seg.addEventListener('keydown', e=>{
+    if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
+    e.preventDefault();
+    let i = btns.findIndex(b=>b.classList.contains('is-active'));
+    if(e.key==='ArrowLeft') i = (i-1+btns.length)%btns.length;
+    if(e.key==='ArrowRight') i = (i+1)%btns.length;
+    if(e.key==='Home') i = 0;
+    if(e.key==='End') i = btns.length-1;
+    activate(i);
+    btns[i].focus();
+  }); */
+
+  // 드래그로 가로 스크롤 (마우스/터치 모두)
+  let down=false, startX=0, startL=0;
+  const start = (x)=>{ down=true; startX=x; startL=seg.scrollLeft; seg.classList.add('dragging'); };
+  const move  = (x)=>{ if(down){ seg.scrollLeft = startL - (x-startX); } };
+  const end   = ()=>{ down=false; seg.classList.remove('dragging'); };
+
+  seg.addEventListener('mousedown', e=> start(e.pageX));
+  window.addEventListener('mousemove', e=> move(e.pageX));
+  window.addEventListener('mouseup', end);
+
+  seg.addEventListener('touchstart', e=> start(e.touches[0].pageX), {passive:true});
+  window.addEventListener('touchmove', e=> move(e.touches[0].pageX), {passive:true});
+  window.addEventListener('touchend', end);
+
+  // 초기 포커스
+  let init = btns.findIndex(b=>b.classList.contains('is-active'));
+  if(init<0) init=0; activate(init, false);
+})();
+</script>

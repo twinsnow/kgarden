@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="stylesheet" href="styles/modal.css"/>
+    <link rel="stylesheet" href="styles/tokens.css"/>
+
+</head>
+<body>
+    <!-- navigation -->
+    <section id="navigation" class="nav__box">
+        <div class="nav__wrapper">
+            <div class="nav__cont">
+                <div class="nav__logo__wrapper">
+                    <a href='/' target="_blank"><img src="icons/logo.svg" alt="logo" class="nav__logo"/><span class="sr_only">홈으로 이동</span></a>
+                    <div data-status="off" style="width:5rem;"><img src="icons/sd_off_ic.svg" alt="사이드 바 열기" class="nav__icon2"/></div>
+                </div>
+                <button type="button" id="open-fd-modal" class="nav__feedback_btn"><img src="icons/fd_ic.svg" alt="피드백 메뉴" class="nav__icon"/></button>
+            </div>
+            <div class="nav__dropdown">
+                <button type="button" id="openBtn" data-modal="modal-fd">피드백</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="main">
+        <div class="main__wrapper">
+            <!-- sidebar off -->
+            <div id="sidebar-container" class="sidebar__cont">
+
+                <div id="sidebar" class="sidebar__cont_off" data-status="off">
+                    <div class="sidebar__cont_inner">
+                        <div class="sidebar__cont_top">
+                            <div><img src="icons/new_chat_ic.svg" alt="새로운 채팅" class="sidebar__cont_icons"/></div>
+                            <div><img src="icons/menu_ic.svg" alt="목록" class="sidebar__cont_icons"/></div>
+                        </div>
+                        <div class="sidebar__cont_bt"><img src="icons/setting_ic.svg" alt="설정" class="sidebar__cont_icons"/></div>
+                    </div>
+                </div>
+                
+                <!-- sidebar on -->
+                <div id="sidebar" class="sidebar__cont_on" data-status="on">
+                    <div class="sidebar__cont_inner">
+                        <div class="sidebar__cont_top">
+                            <div class="top__btn">
+                                <button type="button" class="newchat_btn_wrapper"><img src="icons/new_chat_ic.svg" alt="새로운 채팅" class="newchat_btn_icon"/>새로운 채팅</button>
+                            </div>
+
+                            <div class="sidebar__cont_lists">
+                                <div class="sidebar__list__wrapper">
+                                    <div class="list_title">
+                                        <p>북마크 목록</p>
+                                        <button type="button">
+                                            <img src="icons/toggle_ic.svg" alt="리스트 버튼" toggle="off" class="list_toggle_icon"/>
+                                        </button>
+                                    </div>
+                                    <ul>
+                                        <li class="list__link_txt">
+                                            <a href="/" target="_blank" class="link_title">
+                                                <div>북마크 제목</div>
+
+                                                <button type="button" class="link__menu_btn">
+                                                    <img src="icons/menu_dot_ic.svg" alt="메뉴 보기" style="transform:translateY(1px);">
+                                                    <span class="sr_only">리스트 메뉴</span>
+                                                </button>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="list__menu">
+                                        <ul class="list__menu_items">
+                                            <li class="list__menu_item"><button type="button" class="list__menu_item">북마크 삭제 <img src="icons/bm_ic.svg" alt="" class="sidebar__menu_ic"></button></li>
+                                            <li class="list__menu_item"><button type="button" class="list__menu_item" data-modal="list-delete">대화 삭제 <img src="icons/bin_ic.svg" alt="" class="sidebar__menu_ic"></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar__list__wrapper">
+                                    <div class="list_title">
+                                        <p>지난대화</p>
+                                        <button type="button">
+                                            <img src="icons/toggle_ic.svg" alt="리스트 버튼" toggle="off" class="list_toggle_icon"/>
+                                        </button>
+                                    </div>
+                                    <ul>
+                                        <li class="list__link_txt">
+                                            <a href="/" target="_blank" class="link_title">
+                                                <div>대화 제목</div>
+
+                                                <button type="button" class="link__menu_btn">
+                                                    <img src="icons/menu_dot_ic.svg" alt="메뉴 보기" style="transform:translateY(1px);">
+                                                    <span class="sr_only">리스트 메뉴</span>
+                                                </button>
+                                            </a>
+                                        </li>
+                                        <li class="list__link_txt">
+                                            <a href="/" target="_blank" class="link_title">
+                                                <div>대화 제목</div>
+
+                                                <button type="button" class="link__menu_btn">
+                                                    <img src="icons/menu_dot_ic.svg" alt="메뉴 보기" style="transform:translateY(1px);">
+                                                    <span class="sr_only">리스트 메뉴</span>
+                                                </button>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="list__menu">
+                                        <ul class="list__menu_items">
+                                            <li class="list__menu_item"><button type="button" class="list__menu_item">북마크 추가 <img src="icons/bm_ic.svg" alt="" class="sidebar__menu_ic"></button></li>
+                                            <li class="list__menu_item"><button type="button" class="list__menu_item" data-modal="list-delete">대화 삭제 <img src="icons/bin_ic.svg" alt="" class="sidebar__menu_ic"></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar__cont_bt">
+                            <img src="icons/setting_ic.svg" alt="설정"/>
+                            <button type="button" id="open-setting-modal">설정</button>
+                        </div>
+                    </div>
+                    <div></div>
+
+                </div>
+            </div>
+
+            <!-- content -->
+             <div id="content" class="content__box">
+                <div class="content__wrapper content__wrapper__prompt__adjust">
+
+                    <div class="content__wrapper__prompt">
+                        <div id="prompt-content" class="prompt__content__box">
+
+                            <div class="content__top content__top__adjust">
+                                <div class="segwrap">
+                                    <div class="seg" role="tablist" aria-label="필터">
+                                        <div class="content__topbtn_group track">
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_0.svg" alt="주식시장" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">주식시장</span>
+                                            </button>
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_2.svg" alt="업종 및 종목 등락" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">업종 | 종목 등락</span>
+                                            </button>
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_8.svg" alt="종목현재가" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">종목현재가</span>
+                                            </button>
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_9.svg" alt="글로벌증시" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">글로벌증시</span>
+                                            </button>
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_5.svg" alt="유가 및 상품" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">유가 및 상품</span>
+                                            </button>
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_7.svg" alt="금리 및 환율" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">금리 및 환율</span>
+                                            </button>
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_10.svg" alt="KB 데일리" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">KB 데일리</span>
+                                            </button>
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_6.svg" alt="최신 리포트" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">최신 리포트</span>
+                                            </button>
+                                            <button type="button" class="topbtn__item">
+                                                <img src="icons/g__ic_3.svg" alt="캘린더" class="topbtn__ic"/>
+                                                <span class="topbtn__txt">캘린더</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prompt__content__wrapper">
+                                <div class="prompt__content prompt__content__wrapper__adjust">
+                                    <p class="prompt__timestamp__top">2025년 01월 01일</p>
+                                    <article class="prompt__wrapper__sender" data-id="">
+                                        <div class="prompt__cont">
+                                            <div class="prompt__src sr_only" data-role="">
+                                                user said:
+                                            </div>
+                                            <div class="prompt__txt_box">
+                                                <div class="prompt__txt_adjust">
+                                                    <div class="prompt__timestamp">오후 01:01:01</div>
+                                                    <div class="prompt__txt">
+                                                        2025년 01월 01일
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="prompt__wrapper__query" data-id="">
+                                        <div class="prompt__cont">
+                                            <div class="prompt__src sr_only" data-role="">
+                                                query:
+                                            </div>
+                                            <div class="prompt__query_box">
+                                                <div class="prompt__txt_adjust">
+                                                    <div class="prompt__query_title">
+                                                        주식시장
+                                                    </div>
+                                                    <div class="prompt__model_chosen">
+                                                        rebot thinking
+                                                        <img src="icons/Group_ic.svg" alt="">
+                                                    </div>
+                                                    <div class="prompt__txt">
+                                                        중동 긴장 고조가 한국 시장에 미치는 영향은 주로 에너지 가격 변동, 수출입 불확실성, 그리고 금융시장 변동성으로 나타나고 있습니다.
+                                                        <br/>아래는 주요 동향과 영향을 정리한 내용입니다:
+                                                        <hr class="prompt__linestyle">
+                                                        금융시장 동향
+                                                        <ul class="prompt__txt_ul">
+                                                            <li class="prompt__txt_li">환율 변동: 원/달러 환율은 강달러 기조와 중동 불확실성으로 인해 상승 압력을 받았으나,한국은행의 외환시장 안정화 조치로 큰 혼란은 억제되고 있습니다.</li>
+                                                            <li class="prompt__txt_li">환율 변동: 원/달러 환율은 강달러 기조와 중동 불확실성으로 인해 상승 압력을 받았으나,한국은행의 외환시장 안정화 조치로 큰 혼란은 억제되고 있습니다.</li>
+                                                            <li class="prompt__txt_li">환율 변동: 원/달러 환율은 강달러 기조와 중동 불확실성으로 인해 상승 압력을 받았으나,한국은행의 외환시장 안정화 조치로 큰 혼란은 억제되고 있습니다.</li>
+                                                        </ul>
+                                                        <br/>
+                                                    </div>
+                                                    <div class="prompt__query__btn__group">
+                                                        <button id="prompt-query-btn" class="prompt__query__btn">
+                                                            <img src="icons/tu_ic.svg" alt="좋아요 버튼" class="prompt__query__btn_ic">
+                                                        </button>
+
+                                                        <button id="prompt-query-btn" class="prompt__query__btn">
+                                                            <img src="icons/td_ic.svg" alt="싫어요 버튼" class="prompt__query__btn_ic">
+                                                        </button>
+
+                                                        <button id="prompt-query-btn" class="prompt__query__btn">
+                                                            <img src="icons/rf_ic.svg" alt="새로 고침 버튼" class="prompt__query__btn_ic">
+                                                        </button>
+
+                                                        <button id="prompt-query-btn" class="prompt__query__btn">
+                                                            <img src="icons/li_ic.svg" alt="링크 복사 버튼" class="prompt__query__btn_ic">
+                                                        </button>
+
+                                                        <button id="prompt-query-btn" class="prompt__query__btn">
+                                                            <img src="icons/bm_s_ic.svg" alt="북마크 추가 버튼" class="prompt__query__btn_ic">
+                                                        </button>
+
+                                                        <button id="prompt-query-btn" class="prompt__query__btn">
+                                                            <img src="icons/menu_dot_s_ic.svg" alt="다른 메뉴 열기" class="prompt__query__btn_ic">
+                                                        </button>
+                                                    </div>
+                                                    
+                                                    <div class="prompt__query__exlinks">
+                                                        <button type="button" id="prompt-exlinks-box" class="prompt__exlinks">
+                                                            <div class="prompt__exlinks_txt1">출처</div>
+                                                            <div class="exlinks__img__group">
+                                                                <img src="icons/k__ic.svg" alt="출처 카카오" class="exlink__ic">
+                                                                <img src="icons/g__ic.svg" alt="출처 유튜브" class="exlink__ic">
+                                                                <img src="icons/n__ic.svg" alt="출처 네이버" class="exlink__ic">
+                                                            </div>
+                                                            <div class="prompt__exlinks_txt2">외의 사이트</div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                                <!-- chat -->
+                                <div id="chat-container" class="chat__box">
+                                    <div class="content__chat__wrapper">
+                                        <form action="">
+                                            <div id="input-box" class="content__chat__input_box">
+                                                <div>
+                                                </div>
+                                                <div class="chat__control__box">
+                                                    <textarea id="content-chat-input" class="content__chat__input"></textarea>
+                                                    <div class="content__chat__btn">
+                                                        <button type="submit" class="chat__btn">
+                                                            <img src="icons/send_ic.svg" alt="send"/>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="content__model__select">
+                                        <button type="button" class="model__select_btn">
+                                            <img src="icons/model_ic.svg" alt="" class="" class="model__icons"/>
+                                            <div class="model__select_txt">
+                                                deep search
+                                            </div>
+                                            <img src="icons/toggle_ic.svg" alt="드롭다운 메뉴" class="model__select_arrow"/>
+                                        </button>
+                                        <!-- 드롭다운 메뉴 -->
+                                        <ul class="model__select_menu">
+                                            <li>
+                                                <img src="icons/model_ic.svg" alt="" class="model__icons"/>
+                                                <span>Deep Search</span>
+                                            </li>
+                                            <li>
+                                                <img src="icons/think_ic.svg" alt=""/>
+                                                <span>Deep Search</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- right-popup-menu -->
+                        <div id="right-popup-menu" class="right__popup__menu">
+                            <button type="button" id="right-menu-close" class="right__menu__close">
+                                <img src="icons/cancel_ic.svg" alt="팝업 닫기" class="right__close_btn">
+                            </button>
+                            <ul id="right-popup-menu-items" class="right__popup__menu__items">
+                                <li id="right-menu-item" class="right__menu__item">
+                                    <a href="/" id="right-menu-link" class="right__menu__link">
+                                        주식시장의 역사
+                                    </a>
+                                </li>
+                                <li id="right-menu-item" class="right__menu__item">
+                                    <a href="/" id="right-menu-link" class="right__menu__link">
+                                        주식시장의 역사
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- right-popup-links -->
+                        <div class="right__popup__links" id="right-popup-links">
+                            <div class="popup__links__wrapper">
+                                <button type="button" id="right-links-close" class="right__links__close">
+                                    <img src="icons/cancel_ic.svg" alt="팝업 닫기" class="right__close_btn">
+                                </button>
+                                <div class="right__links__h" id="right-links-h">답변 출처</div>
+                                <ul id="right-popup-links-items" class="right__popup__links__items">
+                                    <li id="right-links-item" class="right__links__item">
+                                        <div class="right__links__ic__group">
+                                            <span class="right__links__ic__src">유튜브</span>
+                                            <img src="icons/g__ic.svg" alt="출처 유튜브" id="right-links-ic" class="right__links__ic"></div>
+                                        <div class="right__links__title__wrapper">
+                                            <a id="right-links-title" class="right__links__title" href="/" target="_blank">
+                                                주식시장
+                                            </a>
+                                        </div>
+                                        <div id="right-links-des" class="right__links__txt">
+                                            <p class="right__links__p">
+                                                <a href="/" target="_blank">
+                                                    중동 긴장 고조가 한국 시장에 미치는 영향은 주로 에너지 가격 변동, 수출입 불확실성, 그리고 금융시장 변동성으로 나타나고 있습니다.
+                                                    중동 긴장 고조가 한국 시장에 미치는 영향은 주로 에너지 가격 변동, 수출입 불확실성, 그리고 금융시장 변동성으로 나타나고 있습니다.
+                                                    중동 긴장 고조가 한국 시장에 미치는 영향은 주로 에너지 가격 변동, 수출입 불확실성, 그리고 금융시장 변동성으로 나타나고 있습니다.
+                                                    중동 긴장 고조가 한국 시장에 미치는 영향은 주로 에너지 가격 변동, 수출입 불확실성, 그리고 금융시장 변동성으로 나타나고 있습니다.
+                                                    중동 긴장 고조가 한국 시장에 미치는 영향은 주로 에너지 가격 변동, 수출입 불확실성, 그리고 금융시장 변동성으로 나타나고 있습니다.
+                                                    중동 긴장 고조가 한국 시장에 미치는 영향은 주로 에너지 가격 변동, 수출입 불확실성, 그리고 금융시장 변동성으로 나타나고 있습니다.
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li id="right-links-item" class="right__links__item">
+                                        <div class="right__links__ic__group">
+                                            <span class="right__links__ic__src">유튜브</span>
+                                            <img src="icons/g__ic.svg" alt="출처 유튜브" id="right-links-ic" class="right__links__ic"></div>
+                                        <div class="right__links__title__wrapper">
+                                            <a id="right-links-title" class="right__links__title" href="/" target="_blank">
+                                                주식시장
+                                            </a>
+                                        </div>
+                                        <div id="right-links-des" class="right__links__txt">
+                                            <p class="right__links__p">
+                                                <a href="/" target="_blank">중동 긴장 고조가 한국 시장에 미치는 영향은 주로 에너지 가격 변동, 수출입 불확실성, 그리고 금융시장 변동성으로 나타나고 있습니다.</a>
+                                            </p>
+                                        </div>
+                                        <pre></pre>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+             </div>
+
+        </div>
+        
+        <!-- modal -->
+        <!-- <button id="openBtn">모달 열기</button> -->
+        <dialog id="modal" claas="modal__root main__wrapper" aria-labelledby="modalTitle">
+            <div id="modal-root" class="modal">
+                <div id="modalBody"></div>
+            </div>
+        </dialog>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
+    <script>
+        (() => {
+        const seg = document.querySelector('.seg');
+        const btns = Array.from(seg.querySelectorAll('.seg__btn'));
+        
+        let down=false, startX=0, startL=0;
+        const start = (x)=>{ down=true; startX=x; startL=seg.scrollLeft; seg.classList.add('dragging'); };
+        const move  = (x)=>{ if(down){ seg.scrollLeft = startL - (x-startX); } };
+        const end   = ()=>{ down=false; seg.classList.remove('dragging'); };
+
+        seg.addEventListener('mousedown', e=> start(e.pageX));
+        window.addEventListener('mousemove', e=> move(e.pageX));
+        window.addEventListener('mouseup', end);
+
+        seg.addEventListener('touchstart', e=> start(e.touches[0].pageX), {passive:true});
+        window.addEventListener('touchmove', e=> move(e.touches[0].pageX), {passive:true});
+        window.addEventListener('touchend', end);
+        })();
+    </script>
+</body>
+</html>
