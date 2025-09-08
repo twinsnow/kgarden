@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'KBfgDisplayB';
+  font-style: bold;
+  font-weight: 600;
+  src: url('fonts/KBfgDisplayB.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KBfgDisplayEB';
+  font-style: bold;
+  font-weight: 700;
+  src: url('fonts/KBfgDisplayEB.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KBfgDisplayL';
+  font-style: light;
+  font-weight: 300;
+  src: url('fonts/KBfgDisplayL.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KBfgDisplayH';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/KBfgDisplayH.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KBfgDisplayM';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/KBfgDisplayM.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KBfgTextB';
+  font-style: bold;
+  font-weight: 600;
+  src: url('fonts/KBfgTextB.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KBfgTextL';
+  font-style: light;
+  font-weight: 300;
+  src: url('fonts/KBfgTextL.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KBfgTextM';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/KBfgTextM.woff2') format('woff2');
+}
